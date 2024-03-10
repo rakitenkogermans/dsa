@@ -60,3 +60,28 @@ describe('BinarySearchTree', () => {
         expect(bst.root.left.right).toBeNull();
     });
 });
+
+describe('BinarySearchTree Traversal Methods', () => {
+    let bst: BinarySearchTree;
+
+    beforeEach(() => {
+        bst = new BinarySearchTree();
+        bst.insert(10).insert(6).insert(15).insert(3).insert(8).insert(20);
+    });
+
+    test('BFS method correctly traverses the tree', () => {
+        expect(bst.BFS()).toEqual([10, 6, 15, 3, 8, 20]);
+    });
+
+    test('DFSPreOrder method correctly traverses the tree', () => {
+        expect(bst.DFSPreOrder()).toEqual([10, 6, 3, 8, 15, 20]);
+    });
+
+    test('DFSPostOrder method correctly traverses the tree', () => {
+        expect(bst.DFSPostOrder()).toEqual([3, 8, 6, 20, 15, 10]);
+    });
+
+    test('DFSInOrder method correctly traverses the tree', () => {
+        expect(bst.DFSInOrder()).toEqual([3, 6, 8, 10, 15, 20]);
+    });
+});
